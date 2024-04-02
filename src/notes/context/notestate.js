@@ -2,7 +2,8 @@ import notecontext from "./createnotecontext";
 import React, { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000"
+  // "http://localhost:5000"
+  const host = "https://todo-backend-ebon.vercel.app"
   const notesinital = [];
   const [notes, setnotes] = useState(notesinital);
 
