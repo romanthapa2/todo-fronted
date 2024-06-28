@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../Url";
 
 const Signup = (props) => {
   let history = useNavigate();
@@ -10,7 +11,7 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = value;
-    const response = await fetch("https://todo-backend-ebon.vercel.app/api/auth/createuser", {
+    const response = await fetch(`${baseUrl}/api/auth/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

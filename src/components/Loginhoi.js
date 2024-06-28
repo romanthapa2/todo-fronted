@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../Url";
 
 const Loginhoi = (props) => {
   // usenaviagate to redirect to another component
@@ -10,7 +11,7 @@ const Loginhoi = (props) => {
   // the body of backend and returns the same response
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://todo-backend-ebon.vercel.app/api/auth/login", {
+    const response = await fetch(`${baseUrl}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

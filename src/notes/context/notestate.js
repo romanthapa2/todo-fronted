@@ -1,16 +1,15 @@
+import { baseUrl } from "../../Url";
 import notecontext from "./createnotecontext";
 import React, { useState } from "react";
 
 const NoteState = (props) => {
-  // "http://localhost:5000"
-  const host = "https://todo-backend-ebon.vercel.app"
   const notesinital = [];
   const [notes, setnotes] = useState(notesinital);
 
     // get all notes from the backend and setnotes
     const getNotes = async () => {
       // API Call 
-      const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+      const response = await fetch(`${baseUrl}/api/notes/fetchallnotes`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -25,7 +24,7 @@ const NoteState = (props) => {
   // add a note
   const addnote = async (title, desc) => {
     // API Call to add the title and desc from fronted to backend
-    const response = await fetch(`${host}/api/notes/addnote`, {
+    const response = await fetch(`${baseUrl}/api/notes/addnote`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +40,7 @@ const NoteState = (props) => {
   // delete a note 
   const deletenote = async(id) => {
         // TODO: API Call
-        const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+        const response = await fetch(`${baseUrl}/api/notes/deletenote/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -61,7 +60,7 @@ const NoteState = (props) => {
   const editnote = async(id,title,desc) => {
       // API Call 
       // updated title and desc is sent to the backend form backend
-      const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+      const response = await fetch(`${baseUrl}/api/notes/updatenote/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
